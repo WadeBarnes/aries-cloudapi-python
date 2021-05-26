@@ -1,0 +1,49 @@
+apiVersion: v1
+data:
+  ACAPY_ADMIN: '[0.0.0.0,3021]'
+  ACAPY_ADMIN_API_KEY: adminApiKey
+  ACAPY_AUTO_ACCEPT_INVITES: "true"
+  ACAPY_AUTO_ACCEPT_REQUESTS: "true"
+  ACAPY_AUTO_PING_CONNECTION: "true"
+  ACAPY_AUTO_PROVISION: "true"
+  ACAPY_AUTO_RESPOND_CREDENTIAL_OFFER: "false"
+  ACAPY_AUTO_RESPOND_CREDENTIAL_PROPOSAL: "false"
+  ACAPY_AUTO_RESPOND_CREDENTIAL_REQUEST: "false"
+  ACAPY_AUTO_RESPOND_MESSAGES: "true"
+  ACAPY_AUTO_RESPOND_PRESENTATION_PROPOSAL: "false"
+  ACAPY_AUTO_RESPOND_PRESENTATION_REQUEST: "false"
+  ACAPY_AUTO_STORE_CREDENTIAL: "false"
+  ACAPY_AUTO_VERIFY_PRESENTATION: "false"
+  ACAPY_ENDPOINT: http://multitenant-agent:3020
+  ACAPY_GENESIS_URL: https://raw.githubusercontent.com/sovrin-foundation/sovrin/master/sovrin/pool_transactions_sandbox_genesis
+  ACAPY_LABEL: Alice
+  ACAPY_LOG_LEVEL: info
+  ACAPY_OUTBOUND_TRANSPORT: http
+  ACAPY_PRESERVE_EXCHANGE_RECORDS: "true"
+  ACAPY_WALLET_KEY: alice_key
+  ACAPY_WALLET_LOCAL_DID: "true"
+  ACAPY_WALLET_NAME: Alice_Name
+  ACAPY_WALLET_STORAGE_CONFIG: '{"url":"wallets-db:5432","wallet_scheme":"MultiWalletSingleTable"}'
+  ACAPY_WALLET_STORAGE_CREDS: '{"account":"postgres","password":"dbpass","admin_account":"postgres","admin_password":"dbpass"}'
+  ACAPY_WALLET_STORAGE_TYPE: postgres_storage
+  ACAPY_WALLET_TYPE: indy
+  ADMIN_PORT: "3021"
+  ADMIN_URL: http://multitenant-agent:3021
+  HTTP_PORT: "3020"
+  NGROK_NAME: ngrok-multitenant
+  POSTGRES_DB: wallets_db
+  POSTGRES_PASSWORD: dbpass
+  POSTGRES_USER: postgres
+  WALLET_DB_ADMIN_PASS: dbpass
+  WALLET_DB_ADMIN_USER: postgres
+  WALLET_DB_HOST: wallets-db
+  WALLET_DB_PASS: dbpass
+  WALLET_DB_PORT: "5432"
+  WALLET_DB_USER: postgres
+  WEBHOOK_PORT: "3010"
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  labels:
+    io.kompose.service: multitenant-agent-resources-aca-py-agent-default-env
+  name: resources-aca-py-agent-default-env

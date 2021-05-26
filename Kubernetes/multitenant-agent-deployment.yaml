@@ -1,0 +1,241 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.22.0 (955b78124)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: multitenant-agent
+  name: multitenant-agent
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: multitenant-agent
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/indy_demo: "true"
+        io.kompose.service: multitenant-agent
+    spec:
+      containers:
+        - env:
+            - name: ACAPY_ADMIN
+              valueFrom:
+                configMapKeyRef:
+                  key: ACAPY_ADMIN
+                  name: resources-aca-py-agent-default-env
+            - name: ACAPY_ADMIN_API_KEY
+              valueFrom:
+                configMapKeyRef:
+                  key: ACAPY_ADMIN_API_KEY
+                  name: resources-aca-py-agent-default-env
+            - name: ACAPY_AUTO_ACCEPT_INVITES
+              valueFrom:
+                configMapKeyRef:
+                  key: ACAPY_AUTO_ACCEPT_INVITES
+                  name: resources-aca-py-agent-default-env
+            - name: ACAPY_AUTO_ACCEPT_REQUESTS
+              valueFrom:
+                configMapKeyRef:
+                  key: ACAPY_AUTO_ACCEPT_REQUESTS
+                  name: resources-aca-py-agent-default-env
+            - name: ACAPY_AUTO_PING_CONNECTION
+              valueFrom:
+                configMapKeyRef:
+                  key: ACAPY_AUTO_PING_CONNECTION
+                  name: resources-aca-py-agent-default-env
+            - name: ACAPY_AUTO_PROVISION
+              valueFrom:
+                configMapKeyRef:
+                  key: ACAPY_AUTO_PROVISION
+                  name: resources-aca-py-agent-default-env
+            - name: ACAPY_AUTO_RESPOND_CREDENTIAL_OFFER
+              valueFrom:
+                configMapKeyRef:
+                  key: ACAPY_AUTO_RESPOND_CREDENTIAL_OFFER
+                  name: resources-aca-py-agent-default-env
+            - name: ACAPY_AUTO_RESPOND_CREDENTIAL_PROPOSAL
+              valueFrom:
+                configMapKeyRef:
+                  key: ACAPY_AUTO_RESPOND_CREDENTIAL_PROPOSAL
+                  name: resources-aca-py-agent-default-env
+            - name: ACAPY_AUTO_RESPOND_CREDENTIAL_REQUEST
+              valueFrom:
+                configMapKeyRef:
+                  key: ACAPY_AUTO_RESPOND_CREDENTIAL_REQUEST
+                  name: resources-aca-py-agent-default-env
+            - name: ACAPY_AUTO_RESPOND_MESSAGES
+              valueFrom:
+                configMapKeyRef:
+                  key: ACAPY_AUTO_RESPOND_MESSAGES
+                  name: resources-aca-py-agent-default-env
+            - name: ACAPY_AUTO_RESPOND_PRESENTATION_PROPOSAL
+              valueFrom:
+                configMapKeyRef:
+                  key: ACAPY_AUTO_RESPOND_PRESENTATION_PROPOSAL
+                  name: resources-aca-py-agent-default-env
+            - name: ACAPY_AUTO_RESPOND_PRESENTATION_REQUEST
+              valueFrom:
+                configMapKeyRef:
+                  key: ACAPY_AUTO_RESPOND_PRESENTATION_REQUEST
+                  name: resources-aca-py-agent-default-env
+            - name: ACAPY_AUTO_STORE_CREDENTIAL
+              valueFrom:
+                configMapKeyRef:
+                  key: ACAPY_AUTO_STORE_CREDENTIAL
+                  name: resources-aca-py-agent-default-env
+            - name: ACAPY_AUTO_VERIFY_PRESENTATION
+              valueFrom:
+                configMapKeyRef:
+                  key: ACAPY_AUTO_VERIFY_PRESENTATION
+                  name: resources-aca-py-agent-default-env
+            - name: ACAPY_ENDPOINT
+              valueFrom:
+                configMapKeyRef:
+                  key: ACAPY_ENDPOINT
+                  name: resources-aca-py-agent-default-env
+            - name: ACAPY_GENESIS_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: ACAPY_GENESIS_URL
+                  name: resources-aca-py-agent-default-env
+            - name: ACAPY_LABEL
+              valueFrom:
+                configMapKeyRef:
+                  key: ACAPY_LABEL
+                  name: resources-aca-py-agent-default-env
+            - name: ACAPY_LOG_LEVEL
+              valueFrom:
+                configMapKeyRef:
+                  key: ACAPY_LOG_LEVEL
+                  name: resources-aca-py-agent-default-env
+            - name: ACAPY_OUTBOUND_TRANSPORT
+              valueFrom:
+                configMapKeyRef:
+                  key: ACAPY_OUTBOUND_TRANSPORT
+                  name: resources-aca-py-agent-default-env
+            - name: ACAPY_PRESERVE_EXCHANGE_RECORDS
+              valueFrom:
+                configMapKeyRef:
+                  key: ACAPY_PRESERVE_EXCHANGE_RECORDS
+                  name: resources-aca-py-agent-default-env
+            - name: ACAPY_WALLET_KEY
+              valueFrom:
+                configMapKeyRef:
+                  key: ACAPY_WALLET_KEY
+                  name: resources-aca-py-agent-default-env
+            - name: ACAPY_WALLET_LOCAL_DID
+              valueFrom:
+                configMapKeyRef:
+                  key: ACAPY_WALLET_LOCAL_DID
+                  name: resources-aca-py-agent-default-env
+            - name: ACAPY_WALLET_NAME
+              valueFrom:
+                configMapKeyRef:
+                  key: ACAPY_WALLET_NAME
+                  name: resources-aca-py-agent-default-env
+            - name: ACAPY_WALLET_STORAGE_CONFIG
+              valueFrom:
+                configMapKeyRef:
+                  key: ACAPY_WALLET_STORAGE_CONFIG
+                  name: resources-aca-py-agent-default-env
+            - name: ACAPY_WALLET_STORAGE_CREDS
+              valueFrom:
+                configMapKeyRef:
+                  key: ACAPY_WALLET_STORAGE_CREDS
+                  name: resources-aca-py-agent-default-env
+            - name: ACAPY_WALLET_STORAGE_TYPE
+              valueFrom:
+                configMapKeyRef:
+                  key: ACAPY_WALLET_STORAGE_TYPE
+                  name: resources-aca-py-agent-default-env
+            - name: ACAPY_WALLET_TYPE
+              valueFrom:
+                configMapKeyRef:
+                  key: ACAPY_WALLET_TYPE
+                  name: resources-aca-py-agent-default-env
+            - name: ADMIN_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: ADMIN_PORT
+                  name: resources-aca-py-agent-default-env
+            - name: ADMIN_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: ADMIN_URL
+                  name: resources-aca-py-agent-default-env
+            - name: HTTP_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: HTTP_PORT
+                  name: resources-aca-py-agent-default-env
+            - name: NGROK_NAME
+              valueFrom:
+                configMapKeyRef:
+                  key: NGROK_NAME
+                  name: resources-aca-py-agent-default-env
+            - name: POSTGRES_DB
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_DB
+                  name: resources-aca-py-agent-default-env
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_PASSWORD
+                  name: resources-aca-py-agent-default-env
+            - name: POSTGRES_USER
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_USER
+                  name: resources-aca-py-agent-default-env
+            - name: WALLET_DB_ADMIN_PASS
+              valueFrom:
+                configMapKeyRef:
+                  key: WALLET_DB_ADMIN_PASS
+                  name: resources-aca-py-agent-default-env
+            - name: WALLET_DB_ADMIN_USER
+              valueFrom:
+                configMapKeyRef:
+                  key: WALLET_DB_ADMIN_USER
+                  name: resources-aca-py-agent-default-env
+            - name: WALLET_DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: WALLET_DB_HOST
+                  name: resources-aca-py-agent-default-env
+            - name: WALLET_DB_PASS
+              valueFrom:
+                configMapKeyRef:
+                  key: WALLET_DB_PASS
+                  name: resources-aca-py-agent-default-env
+            - name: WALLET_DB_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: WALLET_DB_PORT
+                  name: resources-aca-py-agent-default-env
+            - name: WALLET_DB_USER
+              valueFrom:
+                configMapKeyRef:
+                  key: WALLET_DB_USER
+                  name: resources-aca-py-agent-default-env
+            - name: WEBHOOK_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: WEBHOOK_PORT
+                  name: resources-aca-py-agent-default-env
+          image: multitenant-agent
+          name: multitenant-agent
+          ports:
+            - containerPort: 3020
+            - containerPort: 3021
+          resources: {}
+      restartPolicy: Always
+status: {}

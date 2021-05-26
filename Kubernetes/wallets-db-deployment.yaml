@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.22.0 (955b78124)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: wallets-db
+  name: wallets-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: wallets-db
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/indy_demo: "true"
+        io.kompose.service: wallets-db
+    spec:
+      containers:
+        - args:
+            - postgres
+            - -c
+            - listen_addresses=*
+          env:
+            - name: POSTGRES_DB
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_DB
+                  name: resources-db-default-env
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_PASSWORD
+                  name: resources-db-default-env
+            - name: POSTGRES_USER
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_USER
+                  name: resources-db-default-env
+          image: postgres:11
+          name: wallets-db
+          resources: {}
+          tty: true
+          volumeMounts:
+            - mountPath: /docker-entrypoint-initdb.d/init.sql
+              name: wallets-db-claim0
+      restartPolicy: Always
+      volumes:
+        - name: wallets-db-claim0
+          persistentVolumeClaim:
+            claimName: wallets-db-claim0
+status: {}

@@ -1,0 +1,62 @@
+************* Module routers.wallet
+routers/wallet.py:38: [W0511(fixme), ] TODO Can we break down this endpoint into smaller functions?
+routers/wallet.py:47: [W0511(fixme), ] TODO: Should this come from env var or from the client request?
+routers/wallet.py:53: [W0511(fixme), ] TODO: Should this return HTTPException, if so which status code?
+routers/wallet.py:59: [W0511(fixme), ] TODO: Network and paymentaddr should be definable on the fly/via args/via request body
+routers/wallet.py:60: [W0511(fixme), ] TODO: Should this really be a schema or is using schema overkill here?
+routers/wallet.py:154: [W0511(fixme), ] TODO: This should be somehow retsricted?!
+routers/wallet.py:171: [W0511(fixme), ] TODO replace with model for payload/wallet like
+routers/wallet.py:173: [W0511(fixme), ] TODO Remove this default wallet. This has to be provided
+routers/wallet.py:192: [W0511(fixme), ] TODO: Implement wallet_response as schema if that is useful
+routers/wallet.py:290: [W0511(fixme), ] TODO: Should this be admin-only?
+routers/wallet.py:303: [W0511(fixme), ] TODO: Should this be admin-only?
+routers/wallet.py:307: [W0511(fixme), ] TODO Add Security and key managements eg. create and exchange new key pairs
+routers/wallet.py:20: [W1508(invalid-envvar-default), ] os.getenv default type is builtins.bool. Expected str or None.
+routers/wallet.py:26: [R0914(too-many-locals), create_public_did] Too many local variables (18/15)
+routers/wallet.py:76: [W1203(logging-fstring-interpolation), create_public_did] Use lazy % formatting in logging functions
+routers/wallet.py:83: [C0103(invalid-name), create_public_did] Variable name "TAA" doesn't conform to '(([a-z_][a-z0-9_]*)|(_[a-z0-9_]*)|(__[a-z][a-z0-9_]__))$' pattern ('(([a-z_][a-z0-9_]*)|(_[a-z0-9_]*)|(__[a-z][a-z0-9_]__))$' pattern)
+routers/wallet.py:86: [W1203(logging-fstring-interpolation), create_public_did] Use lazy % formatting in logging functions
+routers/wallet.py:96: [W1203(logging-fstring-interpolation), create_public_did] Use lazy % formatting in logging functions
+routers/wallet.py:107: [W1203(logging-fstring-interpolation), create_public_did] Use lazy % formatting in logging functions
+routers/wallet.py:134: [W1203(logging-fstring-interpolation), create_public_did] Use lazy % formatting in logging functions
+routers/wallet.py:135: [W0707(raise-missing-from), create_public_did] Consider explicitly re-raising using the 'from' keyword
+routers/wallet.py:198: [W0707(raise-missing-from), create_wallet] Consider explicitly re-raising using the 'from' keyword
+routers/wallet.py:214: [W0107(unnecessary-pass), get_wallet_info_by_id] Unnecessary pass statement
+routers/wallet.py:206: [W0613(unused-argument), get_wallet_info_by_id] Unused argument 'wallet_id'
+routers/wallet.py:226: [W0107(unnecessary-pass), get_connections] Unnecessary pass statement
+routers/wallet.py:218: [W0613(unused-argument), get_connections] Unused argument 'wallet_id'
+routers/wallet.py:239: [W0107(unnecessary-pass), get_connection_by_id] Unnecessary pass statement
+routers/wallet.py:230: [W0613(unused-argument), get_connection_by_id] Unused argument 'wallet_id'
+routers/wallet.py:230: [W0613(unused-argument), get_connection_by_id] Unused argument 'connection_id'
+routers/wallet.py:251: [W0107(unnecessary-pass), create_connection_by_id] Unnecessary pass statement
+routers/wallet.py:243: [W0613(unused-argument), create_connection_by_id] Unused argument 'wallet_id'
+routers/wallet.py:265: [W0107(unnecessary-pass), update_connection_by_id] Unnecessary pass statement
+routers/wallet.py:255: [W0613(unused-argument), update_connection_by_id] Unused argument 'wallet_id'
+routers/wallet.py:255: [W0613(unused-argument), update_connection_by_id] Unused argument 'connection_id'
+routers/wallet.py:278: [W0107(unnecessary-pass), delete_connection_by_id] Unnecessary pass statement
+routers/wallet.py:269: [W0613(unused-argument), delete_connection_by_id] Unused argument 'wallet_id'
+routers/wallet.py:269: [W0613(unused-argument), delete_connection_by_id] Unused argument 'connection_id'
+routers/wallet.py:291: [W0107(unnecessary-pass), delete_wallet_by_id] Unnecessary pass statement
+routers/wallet.py:282: [W0613(unused-argument), delete_wallet_by_id] Unused argument 'wallet_id'
+routers/wallet.py:304: [W0107(unnecessary-pass), add_did_to_trusted_reg] Unnecessary pass statement
+routers/wallet.py:295: [W0613(unused-argument), add_did_to_trusted_reg] Unused argument 'wallet_id'
+routers/wallet.py:3: [C0411(wrong-import-order), ] standard import "import json" should be placed before "from fastapi import APIRouter, HTTPException"
+routers/wallet.py:4: [C0411(wrong-import-order), ] standard import "import os" should be placed before "from fastapi import APIRouter, HTTPException"
+routers/wallet.py:5: [C0411(wrong-import-order), ] standard import "import logging" should be placed before "from fastapi import APIRouter, HTTPException"
+routers/wallet.py:10: [C0411(wrong-import-order), ] third party import "import aries_cloudcontroller" should be placed before "from schemas import LedgerRequest, DidCreationResponse, InitWalletRequest"
+************* Module routers.schema
+routers/schema.py:106: [C0301(line-too-long), ] Line too long (123/120)
+routers/schema.py:13: [W1508(invalid-envvar-default), ] os.getenv default type is builtins.bool. Expected str or None.
+routers/schema.py:34: [W0707(raise-missing-from), get_schema] Consider explicitly re-raising using the 'from' keyword
+routers/schema.py:94: [E0602(undefined-variable), write_credential_schema] Undefined variable 'schema'
+routers/schema.py:120: [W0707(raise-missing-from), write_credential_schema] Consider explicitly re-raising using the 'from' keyword
+routers/schema.py:2: [W0611(unused-import), ] Unused Optional imported from typing
+routers/schema.py:2: [C0411(wrong-import-order), ] standard import "from typing import List, Optional" should be placed before "from fastapi import APIRouter, HTTPException, Query"
+routers/schema.py:4: [C0411(wrong-import-order), ] standard import "import os" should be placed before "from fastapi import APIRouter, HTTPException, Query"
+************* Module tests.test_wallet
+tests/test_wallet.py:7: [C0304(missing-final-newline), ] Final newline missing
+tests/test_wallet.py:1: [W0611(unused-import), ] Unused import routers.governance
+
+------------------------------------------------------------------
+Your code has been rated at 5.90/10 (previous run: 5.90/10, +0.00)
+
